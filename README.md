@@ -2,7 +2,7 @@
  > just a simple c++ keylogger for Windows
 
 ## Installation
-Clone the repo or simply download the executable "main.exe", and you're ready to go!
+Clone the repo or simply download the executable "keylogger.exe", and you're ready to go!
 
 ## Usage 
 First of all, make sure you have a "log.txt" file in the same directory as your executable or change the directory in the code (that requires compiling again). That's where all the keys are going to be stored. <br />
