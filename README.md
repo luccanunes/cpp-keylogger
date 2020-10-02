@@ -1,2 +1,2 @@
-# keylogger miranha
- just a simple c++ keylogger
+# keylogger 
+ just a simple c++ keylogger for Windows
