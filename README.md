@@ -11,5 +11,5 @@ Whenever you want to close the program, just press "ESC".
 
 ## Disclaimer
 Beware!! **Using a keylogger may be illegal depending on how you use it.** <br />
-This repository was only created as a Proof of Concept, this was not made to harm anyone in anyway. <br />
+This repository was only created as a Proof of Concept, meaning it was not made to harm anyone in anyway. <br />
 For more info about the legality of keyloggers, check [this](https://www.refog.com/is-a-keylogger-legal.html) & [this](https://blogs.findlaw.com/blotter/2017/07/can-i-be-arrested-for-installing-keylogging-software.html)
